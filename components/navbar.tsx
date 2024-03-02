@@ -17,6 +17,7 @@ const Navbar = () => {
   }, [user]);
 
   return (
+    <>
     <nav className="text-forest-green font-semibold py-4 shadow-md">
       <div className="flex items-center ml-10">
         <div className="flex items-center">
@@ -56,7 +57,7 @@ const Navbar = () => {
         </button>
         <div className="mx-auto">
           <Link href="/">
-            <img src="/logo.png" alt="Logo" className="h-12" />
+            <img src="/logo.png" alt="Logo" className="h-12 pr-12" />
           </Link>
         </div>
         <div className="flex font-poppins items-center border-2 border-gray-200 rounded-full p-2 w-28 mr-6">
@@ -106,6 +107,10 @@ const Navbar = () => {
         </div>
       )}
     </nav>
+    <div className="w-full bg-forest-green text-white font-poppins p-2 text-center">
+        <p>Remember to disable ad-block in order to contribute to our tree planting mission!</p>
+      </div>
+    </>
   );
 };
 

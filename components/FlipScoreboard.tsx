@@ -24,7 +24,7 @@ const FlipScoreboard: React.FC<FlipScoreboardProps> = ({ number }) => {
   return (
     <div className="flex justify-center items-center">
       {numberStr.split('').map((digit, index) => (
-        <div key={index} className="mx-1 p-4 bg-white text-forest-green rounded-md text-6xl font-bold w-20">
+        <div key={index} className="mx-1 p-4 shadow-md bg-white text-forest-green rounded-md text-6xl font-bold w-20">
           {digit}
         </div>
       ))}
