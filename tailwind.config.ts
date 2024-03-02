@@ -10,6 +10,9 @@ const config: Config = {
     extend:{
       colors: {
         'forest-green': '#196F3D',
+        'light-purple': '#C480CF',
+        'light-blue': '#8096CF',
+        'light-green': '#B1CF80',
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
