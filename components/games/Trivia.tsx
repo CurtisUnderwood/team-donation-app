@@ -1,35 +1,41 @@
 import React, { useState, useEffect } from 'react';
 
 
-// Get number for question
-const getRandomNumber = (min: number, max: number) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
 async function loadQuestion(){
     const triviaURL = 'https://opentdb.com/api.php?amount=10&difficulty=easy'
     const result = await fetch(`${triviaURL}`)
     const fetched = await result.json()
-    const data = fetched.results[0]
 
-    console.log(data)
+    if (fetched.response_code == 0) {
+        const data = fetched.results[0]
+        
 
-    let question : string = data.question
-    let correct_answer : string = data.correct_answer
-    let incorrect_answers : string[] = data.incorrect_answers
-    let type : string[] = data.type
-
-    return {
-        question: question,
-        options: [
-          correct_answer,
-          incorrect_answers
-        ].flat().sort(() => Math.random() - 0.5),
-        answer: correct_answer
-      };
+        
     
+        console.log(data)
+        let question : string = data.question
+        let correct_answer : string = data.correct_answer
+        let incorrect_answers : string[] = data.incorrect_answers
+        let type : string[] = data.type
+
+        return {
+            question: question,
+            options: [
+            correct_answer,
+            incorrect_answers
+            ].flat().sort(() => Math.random() - 0.5),
+            answer: correct_answer
+        };
+    }else{
+        setTimeout(() => {
+          }, 5000);
+        return loadQuestion()
+    }
 }
 
+function nextQuestion(){
+
+}
 
 
 
@@ -43,8 +49,11 @@ const Trivia: React.FC = () => {
 
   useEffect(() => {
     const question = async () => {
-        await generateNewQuestion()
-          };
+   
+            await generateNewQuestion()
+      
+        };
+        
         question()
   }, []);
 
@@ -59,13 +68,13 @@ const Trivia: React.FC = () => {
       setFeedback('Correct');
       setTimeout(() => {
         setFeedback('');
-        //generateNewQuestion();
+        generateNewQuestion();
       }, 1000);
     } else {
       setFeedback('Incorrect');
       setTimeout(() => {
         setFeedback('');
-        //generateNewQuestion();
+        generateNewQuestion();
       }, 1000);
     }
   };
