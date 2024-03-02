@@ -4,6 +4,9 @@ import React from 'react';
 const GamePage: React.FC = () => {
   return (
     <>
+      <Head>
+        <title>Game - Team Earth</title>
+      </Head>
     </>
   );
 };
