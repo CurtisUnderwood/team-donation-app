@@ -1,11 +1,13 @@
-import Head from 'next/head';
-import React from 'react';
+// import Head from "next/head";
+import React from "react";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import LogoutButton from "@/components/LogoutButton";
+import LoginButton from "@/components/LoginButton";
 
 const LoginPage: React.FC = () => {
-  return (
-    <>
-    </>
-  );
+  const { user } = useUser();
+
+  return <>{user ? <LogoutButton /> : <LoginButton />}</>;
 };
 
 export default LoginPage;
