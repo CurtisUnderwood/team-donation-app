@@ -1,23 +1,47 @@
 import React, { useState, useEffect } from 'react';
 
+let  fetched: any = null
+let index = 0
+
+function decodeHtml(html : any) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+}
 
 async function loadQuestion(){
     const triviaURL = 'https://opentdb.com/api.php?amount=10&difficulty=easy'
     const result = await fetch(`${triviaURL}`)
-    const fetched = await result.json()
+    fetched = await result.json()
 
+}
+
+
+async function nextQuestion(){
+    if (fetched == null || index == 9){
+        await loadQuestion()
+        index = 0
+    }
     if (fetched.response_code == 0) {
-        const data = fetched.results[0]
+        const data = fetched.results[index]
         
 
-        
-    
-        console.log(data)
         let question : string = data.question
+        question = decodeHtml(question)
         let correct_answer : string = data.correct_answer
+        correct_answer = decodeHtml(correct_answer)
         let incorrect_answers : string[] = data.incorrect_answers
-        let type : string[] = data.type
 
+
+        let i = 0
+        while (i < incorrect_answers.length) {
+            incorrect_answers[i] = decodeHtml(incorrect_answers[i])
+            i++;
+        }
+
+
+
+        index += 1
         return {
             question: question,
             options: [
@@ -29,12 +53,8 @@ async function loadQuestion(){
     }else{
         setTimeout(() => {
           }, 5000);
-        return loadQuestion()
+        return nextQuestion()
     }
-}
-
-function nextQuestion(){
-
 }
 
 
@@ -58,7 +78,7 @@ const Trivia: React.FC = () => {
   }, []);
 
   async function generateNewQuestion(){
-    const newQuestion = await loadQuestion();
+    const newQuestion = await nextQuestion();
     setQuestion(newQuestion);
     setFeedback('');
   };
@@ -80,7 +100,7 @@ const Trivia: React.FC = () => {
   };
 
   return (
-    <div className="p-4 rounded-xl shadow-md w-1/4 mx-auto">
+    <div className="p-4 rounded-xl shadow-md w-1/2 mx-auto">
       <h1 className="text-lg text-forest-green mt-4 font-bold">Trivia</h1>
       <p className="text-2xl mb-4 text-forest-green font-bold">{question.question}</p>
       <div className="block">
