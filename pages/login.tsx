@@ -4,6 +4,9 @@ import React from 'react';
 const LoginPage: React.FC = () => {
   return (
     <>
+      <Head>
+        <title>Log In - TeamEarth</title>
+      </Head>
     </>
   );
 };

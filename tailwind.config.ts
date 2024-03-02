@@ -11,6 +11,9 @@ const config: Config = {
       colors: {
         'forest-green': '#196F3D',
       },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
    }
   },
   plugins: [],
