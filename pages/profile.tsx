@@ -3,6 +3,7 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 
 export default function Profile() {
   const { user, error, isLoading } = useUser();
+  const username = user?.username ?? user?.nickname;
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
@@ -12,14 +13,43 @@ export default function Profile() {
       <Head>
         <title>TeamEarth</title>
       </Head>
-      <div className="flex items-center ml-10 mt-10">
-        {user ? (
-          <div>Welcome {user.name}</div>
-        ) : (
-          <div>Please log in first!</div>
-        )}
-        !{/* Display user details */}
-      </div>
+
+      {user ? (
+        <div
+          className="flex items-center justify-center w-full"
+          style={{ height: "90vh" }}
+        >
+          <div className="w-1/2 flex flex-col items-center justify-center">
+            <div className="bg-white p-6">
+              <div className="text-center">
+                <img
+                  src={user.picture ?? ""}
+                  alt="Profile"
+                  className="w-48 h-48 rounded-full mx-auto border-4 border-black"
+                />
+                {username && (
+                  <h1 className="text-4xl font-semibold mt-20">{username}</h1>
+                )}
+                <p className="text-gray-800 text-lg mt-6 mb-10">
+                  <strong>Email:</strong> {user.email}
+                </p>
+              </div>
+            </div>
+            {/* Right Side - Image of Trees */}
+          </div>
+          <div className="w-1/2 flex flex-col justify-between bg-green-100 h-full border-l-4 border-green-800">
+            <h1 className="text-center m-10 mt-24 text-3xl font-semibold">50 trees planted!</h1>
+            <img
+              src="/profile_trees.png"
+              alt="Trees"
+              className="w-full object-cover"
+              style={{ marginBottom: "0px" }}
+            />
+          </div>
+        </div>
+      ) : (
+        <div>Please log in first!</div>
+      )}
     </>
   );
 }
