@@ -19,7 +19,7 @@ const GamesPage: React.FC = () => {
             <GameBox title="MATH MASTERY MISSION"  color="#B1CF80"imageSrc="/logo3.png" path="/games/math-quiz"/>
             <GameBox title="TIMELINE TRIVIA TREK"  color="#F99A86"imageSrc="/logo3.png" path="/games/timeline"/>
             <GameBox title="SPEEDY SYNTAX SPRINT" color="#F8A85F" imageSrc="/logo3.png" path="/games/memory-match"/>
-            <GameBox title="FRENCH FLASHCARD FRENZY" color="#FFE459"  imageSrc="/logo3.png" path="/games/memory-match"/>
+            <GameBox title="FRENCH FLASHCARD FRENZY" color="#FFE459"  imageSrc="/logo3.png" path="/games/french-quiz"/>
           </div>
         </div>
         {/* Right Column */}
