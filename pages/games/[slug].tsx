@@ -2,6 +2,8 @@ import { useRouter } from 'next/router';
 import { Fragment } from 'react';
 import MemoryMatchGame from '../../components/games/MemoryMatchGame';
 import MathQuiz from '../../components/games/MathQuiz';
+import FrenchGame from '../../components/games/FrenchGame';
+import Trivia from '../../components/games/Trivia';
 import Head from 'next/head';
 
 const GamePage = () => {
@@ -16,7 +18,13 @@ const GamePage = () => {
       break;
     case 'math-quiz':
       gameComponent = <MathQuiz />;
+    break;
+    case 'trivia':
+      gameComponent = <Trivia />;
       break;
+    case 'french-quiz':
+      gameComponent = <FrenchGame />;
+    break;
     default:
       gameComponent = <div>Game not found</div>;
   }

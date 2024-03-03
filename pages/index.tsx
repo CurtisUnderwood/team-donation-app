@@ -20,7 +20,7 @@ export default function Home() {
         <GameBox
           title="TOTAL TRIVIA TRIUMPH"
           imageSrc="/logo.png"
-          path="/games/memory-match"
+          path="/games/trivia"
           color="#C480CF"
         />
         <GameBox
