@@ -35,7 +35,7 @@ export default function Home() {
       <div>
         <Link href="/games">
           <button
-            className={`my-4 bg-white border-2 border-forest-green hover:bg-forest-green hover:text-white text-forest-green font-bold py-2 px-4 rounded-3xl`}
+            className={`my-8 bg-white border-2 border-forest-green hover:bg-forest-green hover:text-white text-forest-green font-bold py-2 px-4 rounded-3xl`}
           >
             View All Games
           </button>
