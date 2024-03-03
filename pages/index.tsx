@@ -15,16 +15,19 @@ export default function Home() {
           title="MEMORY MATCH MAYHEM"
           imageSrc="/logo.png"
           path="/games/memory-match"
+          color="#8096CF"
         />
         <GameBox
           title="TOTAL TRIVIA TRIUMPH"
           imageSrc="/logo.png"
           path="/games/memory-match"
+          color="#C480CF"
         />
         <GameBox
           title="MATH MASTERY MISSION"
           imageSrc="/logo.png"
           path="/games/math-quiz"
+          color="#B1CF80"
         />
       </div>
       <div>
