@@ -9,7 +9,7 @@ const GamePage: React.FC = () => {
         <title>Game - Team Earth</title>
         
       </Head>
-      <Trivia/>
+
     </>
   );
 };
