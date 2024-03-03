@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
-import GameBox from '../components/GameBox';
-import Top10Leaderboard from '../components/Top10Leaderboard';
+import GameBox from '@/components/GameBox';
+import Top10Leaderboard from '@/components/Top10Leaderboard';
 import Image from 'next/image'
 
 const GamesPage: React.FC = () => {
@@ -18,7 +18,6 @@ const GamesPage: React.FC = () => {
             <GameBox title="MEMORY MATCH MAYHEM" color="#8096CF" imageSrc="/logo1.png" path="/games/memory-match"/>
             <GameBox title="TOTAL TRIVIA TRIUMPH" color="#C480CF" imageSrc="/logo2.png" path="/games/trivia"/>
             <GameBox title="MATH MASTERY MISSION"  color="#B1CF80"imageSrc="/logo3.png" path="/games/math-quiz"/>
-            <GameBox title="TIMELINE TRIVIA TREK"  color="#F99A86"imageSrc="/logo3.png" path="/games/timeline"/>
             <GameBox title="SPEEDY SYNTAX SPRINT" color="#F8A85F" imageSrc="/logo3.png" path="/games/syntax"/>
             <GameBox title="FRENCH FLASHCARD FRENZY" color="#FFE459"  imageSrc="/logo3.png" path="/games/french-quiz"/>
           </div>

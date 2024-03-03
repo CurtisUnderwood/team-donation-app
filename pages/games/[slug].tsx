@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
 import { Fragment } from 'react';
-import MemoryMatchGame from '../../components/games/MemoryMatchGame';
-import MathQuiz from '../../components/games/MathQuiz';
-import FrenchGame from '../../components/games/FrenchGame';
-import Trivia from '../../components/games/Trivia';
-import SyntaxSprint from '../../components/games/SyntaxSprint';
-import Timeline from '../../components/games/Timeline';
+import MemoryMatchGame from '@/components/games/MemoryMatchGame';
+import MathQuiz from '@/components/games/MathQuiz';
+import FrenchGame from '@/components/games/FrenchGame';
+import Trivia from '@/components/games/Trivia';
+import SyntaxSprint from '@/components/games/SyntaxSprint';
+import Timeline from '@/components/games/Timeline';
 import Head from 'next/head';
 import Image from 'next/image'
 
