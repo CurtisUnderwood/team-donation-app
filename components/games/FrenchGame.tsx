@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { generate } from "random-words";
 import translate from "translate";
-
+import incrementUserScore from "@/components/IncrementScore";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 
 let  fetched: any = null
@@ -41,6 +42,8 @@ const FrenchGame: React.FC = () => {
   });
   const [feedback, setFeedback] = useState<string>('');
 
+  const { user } = useUser();
+
   useEffect(() => {
     const question = async () => {
    
@@ -60,6 +63,9 @@ const FrenchGame: React.FC = () => {
   const handleOptionSelect = (selectedAnswer: string) => {
     if (selectedAnswer === question.answer) {
       setFeedback('Correct');
+      if (user) {
+        incrementUserScore(user);
+      }
       setTimeout(() => {
         setFeedback('');
         generateNewQuestion();

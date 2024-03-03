@@ -7,7 +7,7 @@ const LeaderboardPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Games - Team Earth</title>
+        <title>Games - GameTrees</title>
       </Head>
       <div className="m-10 mx-40 flex">
         {/* Left Column */}

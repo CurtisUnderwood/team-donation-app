@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { generate } from "random-words";
+import incrementUserScore from "@/components/IncrementScore";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 let countdown= false
 let wpm = 0
@@ -7,6 +9,7 @@ let wpm = 0
 const SyntaxSprint: React.FC = () => {
 
   const intervalId = setInterval(tickEverySecond, 1000);
+  const { user } = useUser();
 
   function randomWord(){
     const word = document.getElementById('word')!
@@ -54,6 +57,11 @@ const SyntaxSprint: React.FC = () => {
     timer.remove()
     word.remove()
     input.remove()
+
+    //increment user score
+    if (user) {
+      incrementUserScore(user);
+    }
 
 
     const wpmParagraph: HTMLParagraphElement = document.createElement("p");

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import incrementUserScore from "@/components/IncrementScore";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 type Card = {
   id: number;
@@ -26,6 +28,8 @@ const MemoryMatchGame: React.FC = () => {
   const [cards, setCards] = useState<Card[]>(initialCards);
   const [flippedCards, setFlippedCards] = useState<Card[]>([]);
   const [matchedCards, setMatchedCards] = useState<Card[]>([]);
+
+  const { user } = useUser();
 
   useEffect(() => {
     if (flippedCards.length === 2) {
@@ -64,7 +68,10 @@ const MemoryMatchGame: React.FC = () => {
     // If all cards matched
     if (matchedCards.length === initialCards.length) {
       setTimeout(() => {
-        alert("You win!");
+        //set score
+        if (user) {
+          incrementUserScore(user);
+        }
         resetGame();
       }, 500);
     }
@@ -79,7 +86,7 @@ const MemoryMatchGame: React.FC = () => {
             className={`relative cursor-pointer`}
             onClick={() => handleCardClick(card)}
           >
-            <div className={`w-24 h-24 bg-green-500 rounded-md`}>
+            <div className={`w-24 h-24 bg-forest-green rounded-md`}>
               {flippedCards.includes(card) || matchedCards.includes(card) ? (
                 <img src={card.value} alt={`Card ${card.id}`} className="w-full h-full rounded-md" />
               ) : null}

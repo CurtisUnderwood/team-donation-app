@@ -10,7 +10,7 @@ const LoginPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Log In - TeamEarth</title>
+        <title>Log In - GameTrees</title>
       </Head>
       {user ? <LogoutButton /> : <LoginButton />}
     </>

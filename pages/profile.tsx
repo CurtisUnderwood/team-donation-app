@@ -25,7 +25,7 @@ export default function Profile() {
   return (
     <>
       <Head>
-        <title>TeamEarth</title>
+        <title>Profile - GameTrees</title>
       </Head>
 
       {user ? (

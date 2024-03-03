@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image"
 
 interface GameBoxProps {
     title: string;
@@ -19,6 +20,7 @@ interface GameBoxProps {
             </button>
           </Link>
         </div>
+        <Image src={imageSrc} alt="Tree" width={260} height={96} className="mb-2 rounded-xl absolute -top-8 right-0" />
       </div>
     );
   };

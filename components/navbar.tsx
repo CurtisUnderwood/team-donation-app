@@ -91,7 +91,7 @@ const Navbar = () => {
           </button>
           <div className="mx-auto">
             <Link href="/">
-              <img src="/logo.png" alt="Logo" className="h-12 pr-10" />
+              <img src="/logo.png" alt="Logo" className="h-12" />
             </Link>
           </div>
           <div className="flex font-poppins items-center border-2 border-gray-200 rounded-full p-2 w-28 mr-6">
@@ -129,7 +129,7 @@ const Navbar = () => {
                 <Link href="/">Home</Link>
               </li>
               <li>
-                <Link href="/game">Games</Link>
+                <Link href="/games">Games</Link>
               </li>
               <li>
                 <Link href="/leaderboard">Leaderboard</Link>

@@ -40,7 +40,7 @@ const Leaderboard: React.FC = () => {
 
   return (
     <div className="bg-white shadow-md p-6 rounded-lg font-poppins text-forest-green">
-      <h2 className="text-xl font-bold mb-4">Top 10 Planters</h2>
+      <h2 className="text-xl font-bold mb-4">Top Planters</h2>
       <hr className="border-b my-2" />
       <table className="w-full">
         <tbody>

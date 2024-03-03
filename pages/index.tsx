@@ -10,26 +10,26 @@ export default function Home() {
   return (
     <main className="text-center">
       <Head>
-        <title>TeamEarth</title>
+        <title>GameTrees</title>
       </Head>
       <Hero />
       <div className="flex justify-center mt-6 mx-20 gap-6">
         <GameBox
           title="MEMORY MATCH MAYHEM"
-          imageSrc="/logo.png"
+          imageSrc="/tree_memory.png"
           path="/games/memory-match"
           color="#8096CF"
         />
         <GameBox
           title="TOTAL TRIVIA TRIUMPH"
-          imageSrc="/logo.png"
+          imageSrc="/tree_trivia.png"
           path="/games/trivia"
           color="#C480CF"
         />
         <GameBox
-          title="MATH MASTERY MISSION"
-          imageSrc="/logo.png"
-          path="/games/math-quiz"
+          title="FRENCH FLASHCARD FRENZY"
+          imageSrc="/tree_honhon.png"
+          path="/games/french-quiz"
           color="#B1CF80"
         />
       </div>

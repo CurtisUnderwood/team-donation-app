@@ -8,6 +8,9 @@ import SyntaxSprint from '@/components/games/SyntaxSprint';
 import Timeline from '@/components/games/Timeline';
 import Head from 'next/head';
 import Image from 'next/image'
+import { useUser } from "@auth0/nextjs-auth0/client";
+import getScore from "../../components/GetScore";
+import { useState } from "react";
 
 const GamePage = () => {
   const router = useRouter();
@@ -38,6 +41,20 @@ const GamePage = () => {
       gameComponent = <div>Game not found</div>;
   }
 
+  const [userScore, setUserScore] = useState(0);
+
+  const { user } = useUser();
+
+  if (user) {
+    getScore(user)
+      .then((score) => {
+        setUserScore(Number(score));
+      })
+      .catch((error) => {
+        console.error("Error fetching user score:", error);
+      });
+  }
+
   return (
     <main className="flex justify-center items-start">
     <Head>
@@ -48,7 +65,7 @@ const GamePage = () => {
       <div className="text-forest-green font-poppins text-center col-span-1 flex flex-col items-center">
         <div className="w-full bg-white rounded-lg p-4 shadow-md">
           <h2 className="text-lg font-bold mb-2">Your Trees Planted</h2>
-          <p className="text-4xl font-bold">100</p>
+          <p className="text-4xl font-bold">{userScore.toFixed(2)}</p>
         </div>
         <div className="w-full bg-white rounded-lg p-4 shadow-md mt-4">
           <h2 className="text-lg font-bold mb-2">Global Trees Planted</h2>
