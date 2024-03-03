@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import incrementUserScore from "../IncrementScore";
+import incrementUserScore from "@/components/IncrementScore";
 import { useUser } from "@auth0/nextjs-auth0/client";
 
 // Get number for question

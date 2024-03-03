@@ -1,4 +1,4 @@
-import { db } from "../firebaseConfig";
+import { db } from "@/firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
 
 async function getScore(username: string) {

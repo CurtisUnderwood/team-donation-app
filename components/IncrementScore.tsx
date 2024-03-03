@@ -1,4 +1,4 @@
-import { db } from "../firebaseConfig";
+import { db } from "@/firebaseConfig";
 import { doc, updateDoc, increment } from "firebase/firestore";
 
 async function incrementUserScore(username: string) {

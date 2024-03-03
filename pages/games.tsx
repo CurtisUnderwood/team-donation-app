@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
-import GameBox from '../components/GameBox';
-import Top10Leaderboard from '../components/Top10Leaderboard';
+import GameBox from '@/components/GameBox';
+import Top10Leaderboard from '@/components/Top10Leaderboard';
 import Image from 'next/image'
 
 const GamesPage: React.FC = () => {

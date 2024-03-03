@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import getScore from "./GetScore";
-import { db } from "../firebaseConfig";
+import { db } from "@/firebaseConfig";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
 async function checkEntryAndAddIfNotExists(uniqueId: string): Promise<void> {
