@@ -11,7 +11,7 @@ const Leaderboard: React.FC = () => {
   const usersPerPage = 10; // Number of users per page
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [allUsers, setAllUsers] = useState([]);
+  const [allUsers, setAllUsers] = useState<User[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {

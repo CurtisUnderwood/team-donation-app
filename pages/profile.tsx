@@ -10,7 +10,7 @@ export default function Profile() {
   const username: any = user?.username ?? user?.nickname;
 
   if (user && user.username) {
-    getScore(user.username)
+    getScore(user.username.toString())
       .then((score) => {
         setUserScore(Number(score));
       })
