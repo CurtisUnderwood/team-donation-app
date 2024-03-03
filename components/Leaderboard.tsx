@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
+import fetchFirestoreData from "./GetAllUsers";
 
 interface User {
   username: string;
-  treesPlanted: number;
+  treesPlanted: string;
 }
 
 const Leaderboard: React.FC = () => {
@@ -10,41 +11,19 @@ const Leaderboard: React.FC = () => {
   const usersPerPage = 10; // Number of users per page
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [allUsers, setAllUsers] = useState([]);
 
-  // Predefined list of users
-  const allUsers: User[] = [
-    { username: 'plantlover123', treesPlanted: 50 },
-    { username: 'greenThumb87', treesPlanted: 40 },
-    { username: 'ecowarrior22', treesPlanted: 30 },
-    { username: 'treehugger99', treesPlanted: 25 },
-    { username: 'forestkeeper55', treesPlanted: 20 },
-    { username: 'arbordayfanatic', treesPlanted: 18 },
-    { username: 'savethetrees101', treesPlanted: 15 },
-    { username: 'naturelover365', treesPlanted: 12 },
-    { username: 'gogreen2022', treesPlanted: 10 },
-    { username: 'planterextraordinaire', treesPlanted: 8 },
-    { username: 'sustainableSally', treesPlanted: 45 },
-    { username: 'greenGuru76', treesPlanted: 42 },
-    { username: 'ecoEnthusiast99', treesPlanted: 39 },
-    { username: 'forestFairy22', treesPlanted: 37 },
-    { username: 'treeChampion47', treesPlanted: 35 },
-    { username: 'plantProtector88', treesPlanted: 33 },
-    { username: 'earthDefender55', treesPlanted: 31 },
-    { username: 'natureNurturer42', treesPlanted: 28 },
-    { username: 'greenGuardian79', treesPlanted: 26 },
-    { username: 'ecoHero123', treesPlanted: 24 },
-    { username: 'treeLover96', treesPlanted: 21 },
-    { username: 'forestFriend22', treesPlanted: 19 },
-    { username: 'sustainableSteve', treesPlanted: 17 },
-    { username: 'greenGenius55', treesPlanted: 15 },
-    { username: 'ecoActivist101', treesPlanted: 13 },
-    { username: 'earthSaver33', treesPlanted: 11 },
-    { username: 'natureNinja77', treesPlanted: 9 },
-    { username: 'greenQueen88', treesPlanted: 7 },
-    { username: 'ecoChampion22', treesPlanted: 5 },
-    { username: 'treeSaver99', treesPlanted: 3 },
-    { username: 'plantProtector44', treesPlanted: 1 }
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      const fetchedData = await fetchFirestoreData();
+      const fetchedDataSorted: User[] = fetchedData.sort(
+        (a, b) => b.treesPlanted - a.treesPlanted
+      );
+      setAllUsers(fetchedDataSorted);
+    };
+
+    fetchData();
+  }, []);
 
   // Calculate the index range of users to display based on the current page
   const startIndex = (currentPage - 1) * usersPerPage;
@@ -80,7 +59,9 @@ const Leaderboard: React.FC = () => {
             <button
               key={index}
               className={`px-3 py-1 mx-1 rounded-full focus:outline-none ${
-                currentPage === index + 1 ? 'bg-gray-300' : 'bg-gray-200 hover:bg-gray-400'
+                currentPage === index + 1
+                  ? "bg-gray-300"
+                  : "bg-gray-200 hover:bg-gray-400"
               }`}
               onClick={() => handlePageChange(index + 1)}
             >

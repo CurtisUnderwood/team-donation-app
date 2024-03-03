@@ -9,8 +9,8 @@ export default function Profile() {
   const { user, error, isLoading } = useUser();
   const username: any = user?.username ?? user?.nickname;
 
-  if (user && user.email) {
-    getScore(user.email)
+  if (user && user.username) {
+    getScore(user.username)
       .then((score) => {
         setUserScore(Number(score));
       })

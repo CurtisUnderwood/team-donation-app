@@ -30,13 +30,13 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsAuthenticated(!!user);
-    if (user && user.email) {
-      checkEntryAndAddIfNotExists(user.email).catch(console.error);
+    if (user && user.username) {
+      checkEntryAndAddIfNotExists(user.username).catch(console.error);
     }
   }, [user]);
 
-  if (user && user.email) {
-    getScore(user.email)
+  if (user && user.username) {
+    getScore(user.username)
       .then((score) => {
         setUserScore(Number(score));
       })
