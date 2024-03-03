@@ -83,10 +83,10 @@ const SyntaxSprint: React.FC = () => {
   }, []);
 
   return (
-    <div id='div' className='w-1/2 p-4 mx-auto text-center'>
+    <div id='div' className='w-1/2 p-4 mx-auto text-center center-content'>
       <h1 id='timer' className=' mx-auto h-[60px] w-[60px] rounded-full border-black border-8 text-center font-bold text-3xl align-middle my-4'>60</h1>
       <h1 id='word' className='text-2xl my-1.5'>Words</h1>
-      <input className='border-2 border-black' id='input' onClick={start} onChange={(e) => checkInput(e)}/>
+      <input className='w-full border-2 border-black mx-auto content-center' id='input' onClick={start} onChange={(e) => checkInput(e)}/>
       </div>
   );
 };
