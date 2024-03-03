@@ -4,6 +4,7 @@ import GameBox from "@/components/GameBox";
 import Link from "next/link";
 import MeetTeam from "@/components/MeetTeam";
 import Image from 'next/image'
+import About from "@/components/About"
 
 export default function Home() {
   return (
@@ -42,10 +43,14 @@ export default function Home() {
         </Link>
       </div>
       <div className="border-t py-8">
+        <h1 className="text-3xl text-forest-green font-bold font-poppins mb-6">How it Works</h1>
+        <About />
+      </div>
+      <div className="border-t py-8">
         <Image src="/logo.png" alt="Logo" width={40} height={40} className="mb-2 rounded-xl mx-auto" />
         <h1 className="text-3xl text-forest-green font-bold font-poppins mb-6">Meet the Team</h1>
         <MeetTeam />
-      </div>
+      </div>     
     </main>
   );
 }
