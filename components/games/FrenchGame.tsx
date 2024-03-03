@@ -74,7 +74,7 @@ const FrenchGame: React.FC = () => {
   };
 
   return (
-    <div className="p-4 rounded-xl shadow-md w-1/2 mx-auto text-center">
+    <div className="p-4 rounded-xl shadow-md w-full mx-auto text-center">
       <h1 className="text-lg text-forest-green mt-4 font-bold">How do you say this in French?</h1>
       <p className="text-2xl mb-4 text-forest-green font-bold">{question.question}</p>
       <div className="block">

@@ -3,7 +3,7 @@ import Link from "next/link";
 // components/Footer.tsx
 const Footer = () => {
     return (
-      <footer className="bg-white py-6 border">
+      <footer className="bg-white py-6 border-t">
         <div className="container mx-auto flex items-center font-poppins">
           <div className="flex items-center">
             <img src="/logo.png" alt="Tree Logo" className="h-12 mr-6" />

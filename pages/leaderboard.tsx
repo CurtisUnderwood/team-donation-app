@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 import Leaderboard from '../components/Leaderboard';
-import SquareAd from '@/components/SquareAd';
+import Image from 'next/image';
 
 const LeaderboardPage: React.FC = () => {
   return (
@@ -17,7 +17,8 @@ const LeaderboardPage: React.FC = () => {
         </div>
         {/* Right Column */}
         <div className="w-1/4">
-          <SquareAd />
+        <Image src="/block-336-280.png" alt="Block" width={336} height={280} className="mx-auto mt-2 rounded-xl" />
+        <Image src="/block-336-280.png" alt="Block" width={336} height={280} className="mx-auto mt-2 rounded-xl" />
         </div>
       </div>
     </>

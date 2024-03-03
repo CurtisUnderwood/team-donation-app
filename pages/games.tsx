@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import GameBox from '../components/GameBox';
 import Top10Leaderboard from '../components/Top10Leaderboard';
+import Image from 'next/image'
 
 const GamesPage: React.FC = () => {
   return (
@@ -25,6 +26,7 @@ const GamesPage: React.FC = () => {
         {/* Right Column */}
         <div className="w-1/4">
           <Top10Leaderboard />
+          <Image src="/block-336-280.png" alt="Block" width={336} height={280} className="mx-auto mt-2 rounded-xl" />
         </div>
       </div>
     </>
