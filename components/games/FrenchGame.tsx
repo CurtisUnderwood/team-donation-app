@@ -1,47 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import { generate } from "random-words";
+import translate from "translate";
+
+
 
 let  fetched: any = null
 let index = 0
 
-function decodeHtml(html : any) {
-    var txt = document.createElement("textarea");
-    txt.innerHTML = html;
-    return txt.value;
-}
 
-async function loadQuestion(){
-    const triviaURL = 'https://opentdb.com/api.php?amount=10&difficulty=easy'
-    const result = await fetch(`${triviaURL}`)
-    fetched = await result.json()
-
-}
 
 
 async function nextQuestion(){
-    if (fetched == null || index == 9){
-        await loadQuestion()
-        index = 0
-    }
-    if (fetched.response_code == 0) {
-        const data = fetched.results[index]
-        
+  
 
-        let question : string = data.question
-        question = decodeHtml(question)
-        let correct_answer : string = data.correct_answer
-        correct_answer = decodeHtml(correct_answer)
-        let incorrect_answers : string[] = data.incorrect_answers
+  
+  let test = await translate("Hello world", "fr");
+  let words = generate(4)
+  let question:string= words[0]
+  let correct_answer:string = (await translate(words[0],'fr')).toString()
+  let incorrect_answers:string[] = [(await translate(words[1],'fr')).toString(),(await translate(words[2],'fr')).toString(),(await translate(words[3],'fr'))]
 
-
-        let i = 0
-        while (i < incorrect_answers.length) {
-            incorrect_answers[i] = decodeHtml(incorrect_answers[i])
-            i++;
-        }
-
-
-
-        index += 1
         return {
             question: question,
             options: [
@@ -50,11 +28,7 @@ async function nextQuestion(){
             ].flat().sort(() => Math.random() - 0.5),
             answer: correct_answer
         };
-    }else{
-        setTimeout(() => {
-          }, 5000);
-        return nextQuestion()
-    }
+
 }
 
 
