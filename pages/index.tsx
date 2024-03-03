@@ -2,6 +2,8 @@ import Hero from "@/components/Hero";
 import Head from "next/head";
 import GameBox from "@/components/GameBox";
 import Link from "next/link";
+import MeetTeam from "@/components/MeetTeam";
+import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -33,11 +35,16 @@ export default function Home() {
       <div>
         <Link href="/games">
           <button
-            className={`my-4 bg-white border-2 border-forest-green hover:bg-forest-green hover:text-white text-forest-green font-bold py-2 px-4 rounded-3xl`}
+            className={`my-8 bg-white border-2 border-forest-green hover:bg-forest-green hover:text-white text-forest-green font-bold py-2 px-4 rounded-3xl`}
           >
             View All Games
           </button>
         </Link>
+      </div>
+      <div className="border-t py-8">
+        <Image src="/logo.png" alt="Logo" width={40} height={40} className="mb-2 rounded-xl mx-auto" />
+        <h1 className="text-3xl text-forest-green font-bold font-poppins mb-6">Meet the Team</h1>
+        <MeetTeam />
       </div>
     </main>
   );

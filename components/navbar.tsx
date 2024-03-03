@@ -11,9 +11,9 @@ async function checkEntryAndAddIfNotExists(uniqueId: string): Promise<void> {
 
   if (!docSnap.exists()) {
     await setDoc(docRef, { score: 0 });
-    console.log(`New entry created for ${uniqueId} with score 0.`);
+    // console.log(`New entry created for ${uniqueId} with score 0.`);
   } else {
-    console.log(`Entry for ${uniqueId} already exists.`);
+    // console.log(`Entry for ${uniqueId} already exists.`);
   }
 }
 
@@ -86,7 +86,7 @@ const Navbar = () => {
           </button>
           <div className="mx-auto">
             <Link href="/">
-              <img src="/logo.png" alt="Logo" className="h-12 pr-12" />
+              <img src="/logo.png" alt="Logo" className="h-12 pr-10" />
             </Link>
           </div>
           <div className="flex font-poppins items-center border-2 border-gray-200 rounded-full p-2 w-28 mr-6">
