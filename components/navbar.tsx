@@ -40,8 +40,8 @@ const Navbar = () => {
     }
   }, [user]);
 
-  if (user && user.username) {
-    getScore(user.username.toString())
+  if (user) {
+    getScore(user)
       .then((score) => {
         setUserScore(Number(score));
       })
