@@ -67,8 +67,8 @@ const MathQuiz: React.FC = () => {
   const handleOptionSelect = (selectedAnswer: number) => {
     if (selectedAnswer === question.answer) {
       setFeedback("Correct");
-      if (user && user.username) {
-        incrementUserScore(user.username.toString());
+      if (user) {
+        incrementUserScore(user);
       }
 
       setTimeout(() => {

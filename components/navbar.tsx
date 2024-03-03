@@ -30,8 +30,13 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsAuthenticated(!!user);
-    if (user && user.username) {
-      checkEntryAndAddIfNotExists(user.username.toString()).catch(console.error);
+    if (user) {
+      const firebaseName = user.username ?? user.nickname;
+      if (firebaseName) {
+        checkEntryAndAddIfNotExists(firebaseName.toString()).catch(
+          console.error
+        );
+      }
     }
   }, [user]);
 
