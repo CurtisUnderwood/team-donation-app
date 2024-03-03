@@ -1,9 +1,23 @@
 import Head from "next/head";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import { useState } from "react";
+import getScore from "@/components/GetScore";
 
 export default function Profile() {
+  const [userScore, setUserScore] = useState(0);
+
   const { user, error, isLoading } = useUser();
-  const username = user?.username ?? user?.nickname;
+  const username: any = user?.username ?? user?.nickname;
+
+  if (user && user.username) {
+    getScore(user.username.toString())
+      .then((score) => {
+        setUserScore(Number(score));
+      })
+      .catch((error) => {
+        console.error("Error fetching user score:", error);
+      });
+  }
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
@@ -17,7 +31,7 @@ export default function Profile() {
       {user ? (
         <div
           className="flex items-center justify-center w-full"
-          style={{ height: "90vh" }}
+          style={{ height: "85vh" }}
         >
           <div className="w-1/2 flex flex-col items-center justify-center">
             <div className="bg-white p-6">
@@ -38,7 +52,10 @@ export default function Profile() {
             {/* Right Side - Image of Trees */}
           </div>
           <div className="w-1/2 flex flex-col justify-between bg-green-100 h-full border-l-4 border-green-800">
-            <h1 className="text-center m-10 mt-24 text-3xl font-semibold">50 trees planted!</h1>
+            <h1 className="text-center m-10 mt-20 h-full flex flex-col items-center justify-center text-3xl font-semibold">
+              <div>{userScore} trees planted!</div>
+              <div className="text-xl mt-5">(that's a lot of trees)</div>
+            </h1>
             <img
               src="/profile_trees.png"
               alt="Trees"
