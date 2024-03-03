@@ -25,7 +25,7 @@ const Leaderboard: React.FC = () => {
   const usersToShow = allUsers.slice(0, 10);
 
   return (
-    <div className="bg-white shadow-md p-6 rounded-lg font-poppins text-forest-green">
+    <div className="bg-white shadow-md p-6 rounded-lg font-poppins text-forest-green min-w-[260px] ">
       <h2 className="text-xl font-bold mb-4">Top 10 Planters</h2>
       <hr className="border-b my-2" />
       <table className="w-full">

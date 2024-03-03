@@ -13,7 +13,7 @@ export default function Home() {
         <title>GameTrees</title>
       </Head>
       <Hero />
-      <div className="flex justify-center mt-6 mx-20 gap-6">
+      <div className="md:flex justify-center mt-6 mx-20 gap-6">
         <GameBox
           title="MEMORY MATCH MAYHEM"
           imageSrc="/tree_memory.png"

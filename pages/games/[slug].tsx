@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { Fragment } from 'react';
+import React, { useEffect } from "react";
 import MemoryMatchGame from '@/components/games/MemoryMatchGame';
 import MathQuiz from '@/components/games/MathQuiz';
 import FrenchGame from '@/components/games/FrenchGame';
@@ -11,10 +12,24 @@ import Image from 'next/image'
 import { useUser } from "@auth0/nextjs-auth0/client";
 import getScore from "../../components/GetScore";
 import { useState } from "react";
+import fetchFirestoreData from "../../components/GetAllUsers";
 
 const GamePage = () => {
   const router = useRouter();
   const { slug } = router.query;
+
+  const [totalScore, setTotalScore] = useState(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const fetchedData = await fetchFirestoreData();
+      const totalTrees = fetchedData.reduce((acc, curr) => {
+        return acc + Number(curr.treesPlanted);
+      }, 0);
+      setTotalScore(Number(totalTrees.toFixed(0)));
+    };
+    fetchData();
+  }, []);
 
   let gameComponent;
 
@@ -69,7 +84,7 @@ const GamePage = () => {
         </div>
         <div className="w-full bg-white rounded-lg p-4 shadow-md mt-4">
           <h2 className="text-lg font-bold mb-2">Global Trees Planted</h2>
-          <p className="text-4xl font-bold">100</p>
+          <p className="text-4xl font-bold">{totalScore.toFixed(2)}</p>
         </div>
       </div>
 
