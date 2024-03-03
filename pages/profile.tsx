@@ -54,7 +54,7 @@ export default function Profile() {
           <div className="w-1/2 flex flex-col justify-between bg-green-100 h-full border-l-4 border-green-800">
             <h1 className="text-center m-10 mt-20 h-full flex flex-col items-center justify-center text-3xl font-semibold">
               <div>{userScore} trees planted!</div>
-              <div className="text-xl mt-5">(that's a lot of trees)</div>
+              <div className="text-xl mt-5">(thats a lot of trees)</div>
             </h1>
             <img
               src="/profile_trees.png"
