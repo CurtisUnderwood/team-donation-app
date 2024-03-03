@@ -4,6 +4,8 @@ import MemoryMatchGame from '../../components/games/MemoryMatchGame';
 import MathQuiz from '../../components/games/MathQuiz';
 import FrenchGame from '../../components/games/FrenchGame';
 import Trivia from '../../components/games/Trivia';
+import SyntaxSprint from '../../components/games/SyntaxSprint';
+import Timeline from '../../components/games/Timeline';
 import Head from 'next/head';
 
 const GamePage = () => {
@@ -24,6 +26,12 @@ const GamePage = () => {
       break;
     case 'french-quiz':
       gameComponent = <FrenchGame />;
+      break;
+    case 'syntax':
+      gameComponent = <SyntaxSprint />;
+    break;
+    case 'timeline':
+      gameComponent = <Timeline />;
     break;
     default:
       gameComponent = <div>Game not found</div>;
