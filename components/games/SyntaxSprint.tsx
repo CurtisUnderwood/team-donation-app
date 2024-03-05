@@ -8,7 +8,6 @@ let wpm = 0
 
 const SyntaxSprint: React.FC = () => {
 
-  const intervalId = setInterval(tickEverySecond, 1000);
   const { user } = useUser();
 
   function randomWord(){
@@ -88,6 +87,10 @@ const SyntaxSprint: React.FC = () => {
 
   useEffect(() => {
     randomWord()
+
+      const intervalId = setInterval(tickEverySecond, 1000);
+
+       return () => clearInterval(intervalId);
   }, []);
 
   return (
