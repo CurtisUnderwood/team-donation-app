@@ -4,9 +4,9 @@ import Link from "next/link";
 const Footer = () => {
     return (
       <footer className="bg-white py-6 border-t">
-        <div className="container mx-auto flex items-center font-poppins">
+        <div className="container flex items-center font-varela">
           <div className="flex items-center">
-            <img src="/logo.png" alt="Tree Logo" className="h-12 mr-6" />
+            <img src="/logo.png" alt="Tree Logo" className="h-12 mx-10" />
           </div>
           <nav className="text-forest-green">
             <ul className="flex space-x-4">

@@ -54,6 +54,12 @@ const MemoryMatchGame: React.FC = () => {
     if (flippedCards.length === 2 || clickedCard.flipped || clickedCard.matched) {
       return;
     }
+
+    // If the clicked card is already flipped, return
+    if (flippedCards.some(card => card.id === clickedCard.id) || matchedCards.some((card => card.id === clickedCard.id))) {
+      return;
+    }
+
     // Set card as flipped
     setFlippedCards(prevFlippedCards => [...prevFlippedCards, clickedCard]);
   };
@@ -86,13 +92,13 @@ const MemoryMatchGame: React.FC = () => {
             className={`relative cursor-pointer`}
             onClick={() => handleCardClick(card)}
           >
-            <div className={`w-24 h-24 bg-forest-green rounded-md`}>
+            <div className={`w-24 h-32 hover:border-2 hover:border-4 border-forest-green border-2 bg-white rounded-md`}>
               {flippedCards.includes(card) || matchedCards.includes(card) ? (
                 <img src={card.value} alt={`Card ${card.id}`} className="w-full h-full rounded-md" />
               ) : null}
             </div>
             {matchedCards.includes(card) && (
-              <div className="absolute inset-0 border-4 border-green-500 rounded-md pointer-events-none"></div>
+              <div className="absolute inset-0 border-4 border-forest-green rounded-md pointer-events-none"></div>
             )}
           </div>
         ))}

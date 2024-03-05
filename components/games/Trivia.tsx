@@ -107,7 +107,7 @@ const Trivia: React.FC = () => {
   };
 
   return (
-    <div className="p-4 rounded-xl shadow-md w-full mx-auto text-center">
+    <div className="p-4 rounded-xl shadow-md w-full mx-auto text-center border">
       <h1 className="text-lg text-forest-green mt-4 font-bold">Trivia</h1>
       <p className="text-2xl mb-4 text-forest-green font-bold">{question.question}</p>
       <div className="block">
