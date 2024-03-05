@@ -52,11 +52,11 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="text-forest-green font-semibold py-4 shadow-md">
-        <div className="flex items-center ml-10">
-          <div className="flex items-center">
+      <nav className="text-forest-green py-4 shadow-md font-varela">
+        <div className="grid grid-cols-3 ml-10">
+          <div className="col-span-1 items-center">
             {!isOpen && ( // Display the links when the menu is closed
-              <ul className="hidden md:flex space-x-4">
+              <ul className="hidden md:flex space-x-4 mt-3">
                 <li>
                   <Link href="/">Home</Link>
                 </li>
@@ -71,7 +71,7 @@ const Navbar = () => {
                 </li>
               </ul>
             )}
-          </div>
+
           <button onClick={toggleMenu} className="md:hidden">
             {/* Hamburger menu icon */}
             <svg
@@ -89,61 +89,70 @@ const Navbar = () => {
               />
             </svg>
           </button>
-          <div className="mx-auto">
+          </div>
+          <div className="mx-auto col-span-1">
             <Link href="/">
               <img src="/logo.png" alt="Logo" className="h-12" />
             </Link>
           </div>
-          <div className="flex font-poppins items-center border-2 border-gray-200 rounded-full p-2 w-28 mr-6">
-            <img src="/tree-icon.png" alt="Tree Icon" className="w-6 h-6" />
-            <p className="text-forest-green font-bold text-right flex-grow mr-2">
-              {userScore.toFixed(2)}
-            </p>
-          </div>
-          <div className="flex items-center space-x-4">
-            {!isAuthenticated ? (
-              <>
-                <Link href="/api/auth/login">
-                  <button className="bg-white text-forest-green border-2 border-forest-green rounded-3xl px-4 py-2 mr-10 hover:bg-forest-green hover:text-white">
-                    Log In
-                  </button>
-                </Link>
-              </>
-            ) : (
-              <>
-                <Link href="/profile">Profile</Link>
-                <Link href="/api/auth/logout">
-                  <button className="bg-white text-forest-green border-2 border-forest-green rounded-3xl px-4 py-2 mr-10 hover:bg-forest-green hover:text-white">
-                    Logout
-                  </button>
-                </Link>
-              </>
-            )}
+          <div className="col-span-1 space-x-4 text-right">
+            <div className="inline border rounded-full p-2 px-6">
+              <img src="/tree-icon.png" alt="Tree Icon" className="w-6 h-6 inline" />
+              <p className="text-forest-green inline font-bold text-right ml-2">
+                {userScore.toFixed(2)}
+              </p>
+            </div>
+            <div className="hidden md:inline space-x-4">
+              {!isAuthenticated ? (
+                <>
+                  <Link href="/api/auth/login">
+                    <button className="bg-white text-forest-green border-2 border-forest-green rounded-3xl px-4 py-2 mr-10 hover:bg-forest-green hover:text-white">
+                      Log In
+                    </button>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link href="/profile">Profile</Link>
+                  <Link href="/api/auth/logout">
+                    <button className="bg-white text-forest-green border-2 border-forest-green rounded-3xl px-4 py-2 mr-10 hover:bg-forest-green hover:text-white">
+                      Logout
+                    </button>
+                  </Link>
+                </>
+              )}
+            </div>
           </div>
         </div>
         {/* Mobile view menu */}
         {isOpen && (
-          <div className="md:hidden">
-            <ul className="flex flex-col space-y-4">
-              <li>
+          <div className="md:hidden mt-4">
+            <ul className="flex flex-col space-y-4 text-center font-bold">
+              <li className="hover:bg-forest-green hover:text-white cursor-pointer p-2">
                 <Link href="/">Home</Link>
               </li>
-              <li>
-                <Link href="/games">Games</Link>
+              <li className="hover:bg-forest-green hover:text-white cursor-pointer p-2">
+                <Link href="/games" >Games</Link>
               </li>
-              <li>
+              <li className="hover:bg-forest-green hover:text-white cursor-pointer p-2">
                 <Link href="/leaderboard">Leaderboard</Link>
               </li>
-              <li>
+              <li className="hover:bg-forest-green hover:text-white cursor-pointer p-2">
                 <Link href="/">Blog</Link>
+              </li>
+              <li className="hover:bg-forest-green hover:text-white cursor-pointer p-2">
+                <Link href="/profile">Profile</Link>
+              </li>
+              <li className="hover:bg-forest-green hover:text-white cursor-pointer p-2">
+                <Link href="/api/auth/logout">Logout</Link>
               </li>
             </ul>
           </div>
         )}
       </nav>
-      <div className="w-full bg-forest-green text-white font-poppins p-2 text-center">
+      <div className="w-full bg-forest-green text-white font-varela p-2 text-center">
         <p>
-          Remember to disable ad-block in order to contribute to our tree
+          Remember to disable ad-block in order to support our tree
           planting mission!
         </p>
       </div>

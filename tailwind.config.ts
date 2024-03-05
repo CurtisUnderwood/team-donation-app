@@ -16,6 +16,8 @@ const config: Config = {
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        varela: ["Varela Round", "sans-serif"],
+        paytone: ["Paytone One", "sans-serif"]
       },
    }
   },

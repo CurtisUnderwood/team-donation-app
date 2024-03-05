@@ -10,7 +10,9 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" href="/tree_honhon.png" sizes="any" />
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Varela+Round&display=swap" rel="stylesheet"></link>
+        <link rel="icon" href="/logo.png" sizes="any" />
     </Head>
       <body>
         <Main />
